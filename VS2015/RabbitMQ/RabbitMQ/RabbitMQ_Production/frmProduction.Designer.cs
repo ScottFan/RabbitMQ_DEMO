@@ -29,20 +29,20 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.lblIpAddr = new System.Windows.Forms.Label();
-            this.txtIp = new System.Windows.Forms.TextBox();
-            this.lblPort = new System.Windows.Forms.Label();
-            this.txtPort = new System.Windows.Forms.TextBox();
-            this.btnConnect = new System.Windows.Forms.Button();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.txtMessage = new System.Windows.Forms.TextBox();
-            this.btnSend = new System.Windows.Forms.Button();
+            this.txtQueueName = new System.Windows.Forms.TextBox();
+            this.lblQueueName = new System.Windows.Forms.Label();
             this.txtPwd = new System.Windows.Forms.TextBox();
             this.lblPwd = new System.Windows.Forms.Label();
             this.txtLoginID = new System.Windows.Forms.TextBox();
             this.lblLoginID = new System.Windows.Forms.Label();
-            this.txtQueueName = new System.Windows.Forms.TextBox();
-            this.lblQueueName = new System.Windows.Forms.Label();
+            this.txtPort = new System.Windows.Forms.TextBox();
+            this.lblPort = new System.Windows.Forms.Label();
+            this.txtIp = new System.Windows.Forms.TextBox();
+            this.lblIpAddr = new System.Windows.Forms.Label();
+            this.btnConnect = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtMessage = new System.Windows.Forms.TextBox();
+            this.btnSend = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -66,21 +66,60 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Rabbit Server 信息";
             // 
-            // lblIpAddr
+            // txtQueueName
             // 
-            this.lblIpAddr.AutoSize = true;
-            this.lblIpAddr.Location = new System.Drawing.Point(20, 49);
-            this.lblIpAddr.Name = "lblIpAddr";
-            this.lblIpAddr.Size = new System.Drawing.Size(35, 18);
-            this.lblIpAddr.TabIndex = 0;
-            this.lblIpAddr.Text = "IP:";
+            this.txtQueueName.Location = new System.Drawing.Point(124, 148);
+            this.txtQueueName.Name = "txtQueueName";
+            this.txtQueueName.Size = new System.Drawing.Size(383, 28);
+            this.txtQueueName.TabIndex = 10;
             // 
-            // txtIp
+            // lblQueueName
             // 
-            this.txtIp.Location = new System.Drawing.Point(124, 46);
-            this.txtIp.Name = "txtIp";
-            this.txtIp.Size = new System.Drawing.Size(155, 28);
-            this.txtIp.TabIndex = 1;
+            this.lblQueueName.AutoSize = true;
+            this.lblQueueName.Location = new System.Drawing.Point(20, 151);
+            this.lblQueueName.Name = "lblQueueName";
+            this.lblQueueName.Size = new System.Drawing.Size(89, 18);
+            this.lblQueueName.TabIndex = 9;
+            this.lblQueueName.Text = "队列名称:";
+            // 
+            // txtPwd
+            // 
+            this.txtPwd.Location = new System.Drawing.Point(367, 94);
+            this.txtPwd.Name = "txtPwd";
+            this.txtPwd.Size = new System.Drawing.Size(140, 28);
+            this.txtPwd.TabIndex = 8;
+            // 
+            // lblPwd
+            // 
+            this.lblPwd.AutoSize = true;
+            this.lblPwd.Location = new System.Drawing.Point(308, 98);
+            this.lblPwd.Name = "lblPwd";
+            this.lblPwd.Size = new System.Drawing.Size(53, 18);
+            this.lblPwd.TabIndex = 7;
+            this.lblPwd.Text = "密码:";
+            // 
+            // txtLoginID
+            // 
+            this.txtLoginID.Location = new System.Drawing.Point(124, 95);
+            this.txtLoginID.Name = "txtLoginID";
+            this.txtLoginID.Size = new System.Drawing.Size(155, 28);
+            this.txtLoginID.TabIndex = 6;
+            // 
+            // lblLoginID
+            // 
+            this.lblLoginID.AutoSize = true;
+            this.lblLoginID.Location = new System.Drawing.Point(20, 98);
+            this.lblLoginID.Name = "lblLoginID";
+            this.lblLoginID.Size = new System.Drawing.Size(71, 18);
+            this.lblLoginID.TabIndex = 5;
+            this.lblLoginID.Text = "用户名:";
+            // 
+            // txtPort
+            // 
+            this.txtPort.Location = new System.Drawing.Point(367, 45);
+            this.txtPort.Name = "txtPort";
+            this.txtPort.Size = new System.Drawing.Size(140, 28);
+            this.txtPort.TabIndex = 3;
             // 
             // lblPort
             // 
@@ -91,12 +130,21 @@
             this.lblPort.TabIndex = 2;
             this.lblPort.Text = "Port:";
             // 
-            // txtPort
+            // txtIp
             // 
-            this.txtPort.Location = new System.Drawing.Point(367, 45);
-            this.txtPort.Name = "txtPort";
-            this.txtPort.Size = new System.Drawing.Size(140, 28);
-            this.txtPort.TabIndex = 3;
+            this.txtIp.Location = new System.Drawing.Point(124, 46);
+            this.txtIp.Name = "txtIp";
+            this.txtIp.Size = new System.Drawing.Size(155, 28);
+            this.txtIp.TabIndex = 1;
+            // 
+            // lblIpAddr
+            // 
+            this.lblIpAddr.AutoSize = true;
+            this.lblIpAddr.Location = new System.Drawing.Point(20, 49);
+            this.lblIpAddr.Name = "lblIpAddr";
+            this.lblIpAddr.Size = new System.Drawing.Size(35, 18);
+            this.lblIpAddr.TabIndex = 0;
+            this.lblIpAddr.Text = "IP:";
             // 
             // btnConnect
             // 
@@ -136,54 +184,6 @@
             this.btnSend.UseVisualStyleBackColor = true;
             this.btnSend.Click += new System.EventHandler(this.btnSend_Click);
             // 
-            // txtPwd
-            // 
-            this.txtPwd.Location = new System.Drawing.Point(367, 94);
-            this.txtPwd.Name = "txtPwd";
-            this.txtPwd.Size = new System.Drawing.Size(140, 28);
-            this.txtPwd.TabIndex = 8;
-            // 
-            // lblPwd
-            // 
-            this.lblPwd.AutoSize = true;
-            this.lblPwd.Location = new System.Drawing.Point(308, 98);
-            this.lblPwd.Name = "lblPwd";
-            this.lblPwd.Size = new System.Drawing.Size(53, 18);
-            this.lblPwd.TabIndex = 7;
-            this.lblPwd.Text = "密码:";
-            // 
-            // txtLoginID
-            // 
-            this.txtLoginID.Location = new System.Drawing.Point(124, 95);
-            this.txtLoginID.Name = "txtLoginID";
-            this.txtLoginID.Size = new System.Drawing.Size(155, 28);
-            this.txtLoginID.TabIndex = 6;
-            // 
-            // lblLoginID
-            // 
-            this.lblLoginID.AutoSize = true;
-            this.lblLoginID.Location = new System.Drawing.Point(20, 98);
-            this.lblLoginID.Name = "lblLoginID";
-            this.lblLoginID.Size = new System.Drawing.Size(71, 18);
-            this.lblLoginID.TabIndex = 5;
-            this.lblLoginID.Text = "用户名:";
-            // 
-            // txtQueueName
-            // 
-            this.txtQueueName.Location = new System.Drawing.Point(124, 148);
-            this.txtQueueName.Name = "txtQueueName";
-            this.txtQueueName.Size = new System.Drawing.Size(383, 28);
-            this.txtQueueName.TabIndex = 10;
-            // 
-            // lblQueueName
-            // 
-            this.lblQueueName.AutoSize = true;
-            this.lblQueueName.Location = new System.Drawing.Point(20, 151);
-            this.lblQueueName.Name = "lblQueueName";
-            this.lblQueueName.Size = new System.Drawing.Size(89, 18);
-            this.lblQueueName.TabIndex = 9;
-            this.lblQueueName.Text = "队列名称:";
-            // 
             // frmProduction
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -197,6 +197,7 @@
             this.MaximizeBox = false;
             this.Name = "frmProduction";
             this.Text = "生产者";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmProduction_FormClosing);
             this.Load += new System.EventHandler(this.frmProduction_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

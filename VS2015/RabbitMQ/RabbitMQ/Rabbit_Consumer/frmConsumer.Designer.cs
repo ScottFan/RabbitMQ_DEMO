@@ -199,6 +199,7 @@
             this.MaximizeBox = false;
             this.Name = "frmConsumer";
             this.Text = "消费者";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmConsumer_FormClosing);
             this.Load += new System.EventHandler(this.frmConsumer_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);

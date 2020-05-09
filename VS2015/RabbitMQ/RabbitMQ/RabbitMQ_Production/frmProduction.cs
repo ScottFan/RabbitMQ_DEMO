@@ -31,8 +31,8 @@ namespace RabbitMQ_Production
                 int port = 5672;//默认端口
                 int.TryParse(txtPort.Text, out port);
                 factory.Port = port;
-                factory.UserName = txtLoginID.Text;
-                factory.Password = txtPwd.Text;
+                factory.UserName = txtLoginID.Text;//登录用户，同登录Rabbit web管理工具
+                factory.Password = txtPwd.Text;//登录密码，同登录Rabbit web管理工具
                 factory.RequestedHeartbeat = 60;
 
                 connection = factory.CreateConnection();
@@ -84,6 +84,20 @@ namespace RabbitMQ_Production
                 properties.DeliveryMode = 1;
                 properties.Persistent = true;
                 channel.BasicPublish("", "scott", properties, Encoding.UTF8.GetBytes(txtMessage.Text));
+            }
+        }
+
+        private void frmProduction_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (channel.IsOpen)
+            {
+                channel.Close();
+                channel.Dispose();
+            }
+            if (connection.IsOpen)
+            {
+                connection.Close();
+                connection.Dispose();
             }
         }
     }

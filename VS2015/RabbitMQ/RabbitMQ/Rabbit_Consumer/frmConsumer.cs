@@ -38,7 +38,7 @@ namespace Rabbit_Consumer
         {
             if (btnConnect.Text.Equals("连接"))
             {
-                factory.HostName = txtIp.Text;//主机名，Rabbit会拿这个IP生成一个endpoint，这个很熟悉吧，就是socket绑定的那个终结点。
+                factory.HostName = txtIp.Text;//主机名，Rabbit会拿这个IP生成一个endpoint，就是socket绑定的那个终结点。
                 int port = 5672;
                 int.TryParse(txtPort.Text, out port);
                 factory.Port = port;
@@ -106,10 +106,19 @@ namespace Rabbit_Consumer
             }
         }
 
-        private void btnStop_Click(object sender, EventArgs e)
+
+        private void frmConsumer_FormClosing(object sender, FormClosingEventArgs e)
         {
-            consumer.OnCancel();
-            btnReceiving.Enabled = true;
+            if (channel.IsOpen)
+            {
+                channel.Close();
+                channel.Dispose();
+            }
+            if (connection.IsOpen)
+            {
+                connection.Close();
+                connection.Dispose();
+            }
         }
     }
 }

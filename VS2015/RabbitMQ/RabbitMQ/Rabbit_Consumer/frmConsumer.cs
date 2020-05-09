@@ -94,9 +94,9 @@ namespace Rabbit_Consumer
                         lstMsg.Items.Add(message);
                     };
                     this.Invoke(act);
-                    
+                    channel.BasicAck(ea.DeliveryTag,true);
                 };
-                channel.BasicConsume("scott", true, consumer);//消费消息
+                channel.BasicConsume("scott", false, consumer);//消费消息
             }
             catch
             { }

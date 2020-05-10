@@ -75,7 +75,11 @@ namespace Rabbit_Consumer
                     connection.Close();
                     connection.Dispose();
                 }
-                if (!connection.IsOpen && !channel.IsOpen) btnConnect.Text = "连接";
+                if (!connection.IsOpen && !channel.IsOpen)
+                {
+                    btnConnect.Text = "连接";
+                    btnReceiving.Enabled = false;
+                }
             }
         }
 

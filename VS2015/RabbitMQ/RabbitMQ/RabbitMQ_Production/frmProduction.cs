@@ -43,12 +43,15 @@ namespace RabbitMQ_Production
                     btnConnect.BackColor = Color.Green;
                     //channel.QueueDeclare(txtQueueName.Text, false, false, false, null);//创建一个名称为txtQueueName.Text的消息队列，非持久化的队列
                     channel.QueueDeclare(txtQueueName.Text, true, false, false, null);//创建一个名称为txtQueueName.Text的消息队列，持久化的队列
-
+                    btnSend.Enabled = true;
+                    btnBatchSend.Enabled = true;
                 }
                 else
                 {
                     btnConnect.Text = "连接";
                     btnConnect.BackColor = Color.Red;
+                    btnSend.Enabled = false;
+                    btnBatchSend.Enabled = false;
                 }
             }
             else
@@ -63,7 +66,12 @@ namespace RabbitMQ_Production
                     connection.Close();
                     connection.Dispose();
                 }
-                if (!connection.IsOpen && !channel.IsOpen) btnConnect.Text = "连接";
+                if (!connection.IsOpen && !channel.IsOpen)
+                {
+                    btnConnect.Text = "连接";
+                    btnSend.Enabled = false;
+                    btnBatchSend.Enabled = false;
+                }
             }
         }
 
@@ -74,6 +82,8 @@ namespace RabbitMQ_Production
             txtLoginID.Text = "scott";
             txtPwd.Text = "123456";
             txtQueueName.Text = "scott";
+            btnSend.Enabled = false;
+            btnBatchSend.Enabled = false;
         }
 
         private void btnSend_Click(object sender, EventArgs e)

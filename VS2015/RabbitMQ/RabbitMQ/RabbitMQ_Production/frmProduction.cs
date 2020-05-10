@@ -53,12 +53,12 @@ namespace RabbitMQ_Production
             }
             else
             {
-                if (!channel.IsOpen)
+                if (channel.IsOpen)
                 {
                     channel.Close();
                     channel.Dispose();
                 }
-                if(!connection.IsOpen)
+                if(connection.IsOpen)
                 {
                     connection.Close();
                     connection.Dispose();
@@ -99,6 +99,12 @@ namespace RabbitMQ_Production
                 connection.Close();
                 connection.Dispose();
             }
+        }
+
+        private void btnBatchSend_Click(object sender, EventArgs e)
+        {
+            frmBatchSend _frmBatch = new RabbitMQ_Production.frmBatchSend(factory, connection, channel);
+            _frmBatch.ShowDialog();
         }
     }
 }

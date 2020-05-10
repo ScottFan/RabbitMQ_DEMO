@@ -43,6 +43,7 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.txtMessage = new System.Windows.Forms.TextBox();
             this.btnSend = new System.Windows.Forms.Button();
+            this.btnBatchSend = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -148,7 +149,7 @@
             // 
             // btnConnect
             // 
-            this.btnConnect.Location = new System.Drawing.Point(279, 405);
+            this.btnConnect.Location = new System.Drawing.Point(107, 405);
             this.btnConnect.Name = "btnConnect";
             this.btnConnect.Size = new System.Drawing.Size(123, 40);
             this.btnConnect.TabIndex = 4;
@@ -176,7 +177,7 @@
             // 
             // btnSend
             // 
-            this.btnSend.Location = new System.Drawing.Point(422, 405);
+            this.btnSend.Location = new System.Drawing.Point(250, 405);
             this.btnSend.Name = "btnSend";
             this.btnSend.Size = new System.Drawing.Size(123, 40);
             this.btnSend.TabIndex = 2;
@@ -184,11 +185,22 @@
             this.btnSend.UseVisualStyleBackColor = true;
             this.btnSend.Click += new System.EventHandler(this.btnSend_Click);
             // 
+            // btnBatchSend
+            // 
+            this.btnBatchSend.Location = new System.Drawing.Point(396, 405);
+            this.btnBatchSend.Name = "btnBatchSend";
+            this.btnBatchSend.Size = new System.Drawing.Size(123, 40);
+            this.btnBatchSend.TabIndex = 5;
+            this.btnBatchSend.Text = "批量发送";
+            this.btnBatchSend.UseVisualStyleBackColor = true;
+            this.btnBatchSend.Click += new System.EventHandler(this.btnBatchSend_Click);
+            // 
             // frmProduction
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(561, 455);
+            this.Controls.Add(this.btnBatchSend);
             this.Controls.Add(this.btnSend);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -224,6 +236,7 @@
         private System.Windows.Forms.Label lblLoginID;
         private System.Windows.Forms.TextBox txtQueueName;
         private System.Windows.Forms.Label lblQueueName;
+        private System.Windows.Forms.Button btnBatchSend;
     }
 }
 

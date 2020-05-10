@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Threading;
 
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
@@ -19,6 +20,7 @@ namespace Rabbit_Consumer
         IConnection connection;
         IModel channel;
         EventingBasicConsumer consumer;
+        int nMsgCount = 0;
         public frmConsumer()
         {
             InitializeComponent();
@@ -85,21 +87,26 @@ namespace Rabbit_Consumer
                 channel.QueueDeclare(txtQueueName.Text, true, false, false, null);
                 channel.BasicQos(0, 1, false);
                 consumer = new EventingBasicConsumer(channel);//消费者
+                channel.BasicConsume("scott", false, consumer);//消费消息
                 consumer.Received += (model, ea) =>
                 {
-
+                    nMsgCount++;
                     var body = ea.Body;
                     var message = Encoding.UTF8.GetString(body);
                     Action act = delegate () {
                         lstMsg.Items.Add(message);
+                        groupBox2.Text = string.Format("消息({0})", nMsgCount);
                     };
                     this.Invoke(act);
                     channel.BasicAck(ea.DeliveryTag,true);
+                    Thread.Sleep(10);
                 };
-                channel.BasicConsume("scott", false, consumer);//消费消息
+                
             }
-            catch
-            { }
+            catch(Exception  ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
             finally
             {
                 
